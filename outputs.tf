@@ -1,11 +1,16 @@
-#output "service_name" {
-#  description = "ECS Service name"
-#  value       = "${element(coalescelist(aws_ecs_service.default.*.name, aws_ecs_service.ignore_changes_task_definition.*.name), 0)}"
-#}
+output "service_role_name" {
+  description = "ECS Service role name"
+  value       = "${aws_iam_role_ecs_service.name}"
+}
 
 output "service_role_arn" {
   description = "ECS Service role ARN"
   value       = "${aws_iam_role.ecs_service.arn}"
+}
+
+output  "service_role_id" {
+  description = "ECS Service role id"
+  value       = "${aws_iam_role.ecs_service.id}"
 }
 
 output "task_role_name" {
@@ -18,6 +23,11 @@ output "task_role_arn" {
   value       = "${aws_iam_role.ecs_task.arn}"
 }
 
+output "task_role_id" {
+  description = "ECS Task role id"
+  value       = "${aws_iam_role.ecs_task.id}"
+}
+
 output "exec_role_name" {
   description = "ECS Exec role name"
   value       = "${aws_iam_role.ecs_exec.name}"
@@ -26,6 +36,11 @@ output "exec_role_name" {
 output "exec_role_arn" {
   description = "ECS Exec role ARN"
   value       = "${aws_iam_role.ecs_exec.arn}"
+}
+
+output "exec_role_id" {
+  description = "ECS Exec role id"
+  value       = "${aws_iam_role.ecs_exec.id}"
 }
 
 output "service_security_group_id" {
