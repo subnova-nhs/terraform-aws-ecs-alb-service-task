@@ -1,6 +1,6 @@
 output "service_role_name" {
   description = "ECS Service role name"
-  value       = "${aws_iam_role_ecs_service.name}"
+  value       = "${aws_iam_role.ecs_service.name}"
 }
 
 output "service_role_arn" {
